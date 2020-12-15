@@ -13,7 +13,6 @@ $ composer require ghaninia/shipping
 <code>
 
     ...config/app.php
-    
     'providers' => [
         ...
         GhaniniaIR\Shipping\ShippingServiceProvider::class,
@@ -23,6 +22,7 @@ $ composer require ghaninia/shipping
         ...
         'Shipping' =>GhaniniaIR\Shipping\Shipping::class,
     ],
+
 </code>
 
 <h1  dir="rtl">نحوه استفاده</h1>
@@ -43,7 +43,12 @@ use GhaniniaIR\Shipping\Shipping ;
 <li>arg 3 : وزن مرسوله</li>
 <li>arg 4 : قیمت مرسوله</li>
 </ul>
-
 <code>
-Shipping::sefarshi( $sourceID , $destination , $weight , $price )
+Shipping::sefarshi( $sourceID , $destination , $weight , $price )->getPrice()
+</code>
+<p dir="rtl">
+    در صورتی که دریافتی شما تحویل در محل باشد میتوانید از تابع زیر استفاده کنید تنها کافیه از دستور زیر تبعیت نمایید.
+</p>
+<code>
+Shipping::sefarshi( $sourceID , $destination , $weight , $price )->getPrice( true )
 </code>
