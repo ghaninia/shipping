@@ -1,27 +1,49 @@
-<h1>نصب</h1>
-
+<h1 dir="rtl">نصب</h1>
+<p  dir="rtl">
 برای نصب دستور زیر را وارد کنید
-<br><code>$ composer require ghaninia/shipping</code>
-<br>
-حال باید پکیج را درون پروژه خود اضافه کنید برای این کار دستور زیر را وارد کنید
-<code>
-
-// config/app.php
-'providers' => [
-    ...
-    GhaniniaIR\Shipping\ShippingServiceProvider::class,
-],
-
-'alias' => [
-    ...
-    'Shipping' =>GhaniniaIR\Shipping\Shipping::class,
-]
-
- ,
+</p>
+<code dir="ltr">
+$ composer require ghaninia/shipping
 </code>
 
-<h1>نحوه استفاده</h1>
-در بالای هر فایل خود از کلاس shipping استفاده میکند، از دستور زیر استفاده کنید
+<p  dir="rtl">
+حال باید پکیج را درون پروژه خود اضافه کنید برای این کار دستور زیر را وارد کنید
+</p>
+
 <code>
- GhaniniaIR\Shipping\Shipping
+
+    ...config/app.php
+    
+    'providers' => [
+        ...
+        GhaniniaIR\Shipping\ShippingServiceProvider::class,
+    ],
+
+    'alias' => [
+        ...
+        'Shipping' =>GhaniniaIR\Shipping\Shipping::class,
+    ],
+</code>
+
+<h1  dir="rtl">نحوه استفاده</h1>
+<p  dir="rtl">
+در بالای هر فایل خود از کلاس shipping استفاده میکند، از دستور زیر استفاده کنید
+</p>
+
+<code>
+use GhaniniaIR\Shipping\Shipping ;
+
+</code>
+<p dir="rtl">
+برای محاسبه قیمت پست سفارشی طبق الگو زیر عمل باید نمایید:
+</p>
+<ul dir="rtl">
+<li>arg 1 : آیدی استان مبدا</li>
+<li>arg 2 : آیدی استان مقصد</li>
+<li>arg 3 : وزن مرسوله</li>
+<li>arg 4 : قیمت مرسوله</li>
+</ul>
+
+<code>
+Shipping::sefarshi( $sourceID , $destination , $weight , $price )
 </code>
