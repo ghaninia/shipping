@@ -51,6 +51,7 @@ Shipping::sefarshi( $sourceID , $destination , $weight , $price )->getPrice()
 Shipping::pishtaz( $sourceID , $destination , $weight , $price )->getPrice()
 ```
 
+<h1>COD</h1>
 <p dir="rtl">
     در صورتی که دریافتی شما تحویل در محل باشد میتوانید از تابع زیر استفاده کنید تنها کافیه از دستور زیر تبعیت نمایید.
 </p>
@@ -61,6 +62,7 @@ Shipping::sefarshi( $sourceID , $destination , $weight , $price )->getPrice( tru
 Shipping::pishtaz( $sourceID , $destination , $weight , $price )->getPrice( true )
 ```
 
+<h1 dir="rtl">بروزرسانی تعرفه ها</h1>
 <p dir="rtl">
     در صورتی که لیست شرکت بروز گردیده باشد شما باید حتما فایل  config را publish نمایید تا قیمت ها را بروز رسانی کنید برای این کار کافیه کد در ترمینال وارد کنید:
 </p>
