@@ -51,7 +51,7 @@ Shipping::sefarshi( $sourceID , $destination , $weight , $price )->getPrice()
 Shipping::pishtaz( $sourceID , $destination , $weight , $price )->getPrice()
 ```
 
-<h1>COD</h1>
+<h1 dir="rtl">COD</h1>
 <p dir="rtl">
     در صورتی که دریافتی شما تحویل در محل باشد میتوانید از تابع زیر استفاده کنید تنها کافیه از دستور زیر تبعیت نمایید.
 </p>
