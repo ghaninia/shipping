@@ -1,0 +1,22 @@
+{
+    "name": "ghaninia/shipping" ,
+    "authors": [
+        {
+            "name": "Amin Ghaninia",
+            "email": "info@ghaninia.ir"
+        }
+    ],
+    "require": {} ,
+    "autoload": {
+        "psr-4": {
+            "GhaniniaIR\\Shipping\\" : "src/" 
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "GhaniniaIR\\Shipping\\ShippingServiceProvider"
+            ]
+        }
+    }
+}
