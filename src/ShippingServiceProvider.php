@@ -10,13 +10,13 @@ class ShippingServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->mergeConfigFrom(
+            __DIR__.'/config/shipping.php', 'shipping'
+        );
     }
 
     public function boot()
     {
-        $this->mergeConfigFrom(
-            __DIR__.'/config/shipping.php', 'shipping'
-        );
+        
     }
 }
