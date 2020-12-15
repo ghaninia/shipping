@@ -74,3 +74,137 @@ php artisan vendor:publish
 <p dir="rtl">
 در پوشه config شما فایلی به اسم shipping.php  دارید بعد از باز کردن فایل میتوانید تعرفه ها را بروز نمایید.
 </p>
+
+<table dir="rtl" align="right">
+    <thead >
+        <tr>
+            <th colspan="2">استان های تحت پوشش بهمراه آیدی</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>تهران</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>گیلان</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>آذربایجان شرقی</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>خوزستان</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>فارس</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>اصفهان</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>خراسان رضوی</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>قزوین</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>سمنان</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>قم</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>مرکزی</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>زنجان</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>مازندران</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>گلستان</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>اردبیل</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>آذربایجان غربی</td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td>همدان</td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td>کردستان</td>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>کرمانشاه</td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td>لرستان</td>
+        </tr>
+        <tr>
+            <td>21</td>
+            <td>بوشهر</td>
+        </tr>
+        <tr>
+            <td>22</td>
+            <td>کرمان</td>
+        </tr>
+        <tr>
+            <td>23</td>
+            <td>هرمزگان</td>
+        </tr>
+        <tr>
+            <td>24</td>
+            <td>چهارمحال و بختیاری</td>
+        </tr>
+        <tr>
+            <td>25</td>
+            <td>یزد</td>
+        </tr>
+        <tr>
+            <td>26</td>
+            <td>سیستان و بلوچستان</td>
+        </tr>
+        <tr>
+            <td>27</td>
+            <td>ایلام</td>
+        </tr>
+        <tr>
+            <td>28</td>
+            <td>کهگلویه و بویراحمد</td>
+        </tr>
+        <tr>
+            <td>29</td>
+            <td>خراسان شمالی</td>
+        </tr>
+        <tr>
+            <td>30</td>
+            <td>خراسان جنوبی</td>
+        </tr>
+        <tr>
+            <td>31</td>
+            <td>البرز</td>
+        </tr>
+    </tbody>
+</table>
