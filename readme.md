@@ -45,10 +45,18 @@ use GhaniniaIR\Shipping\Shipping ;
 </ul>
 <code>
 Shipping::sefarshi( $sourceID , $destination , $weight , $price )->getPrice()
+
+Shipping::pishtaz( $sourceID , $destination , $weight , $price )->getPrice()
 </code>
 <p dir="rtl">
     در صورتی که دریافتی شما تحویل در محل باشد میتوانید از تابع زیر استفاده کنید تنها کافیه از دستور زیر تبعیت نمایید.
 </p>
 <code>
 Shipping::sefarshi( $sourceID , $destination , $weight , $price )->getPrice( true )
+
+Shipping::pishtaz( $sourceID , $destination , $weight , $price )->getPrice( true )
 </code>
+
+<p>
+    در صورتی که لیست شرکت بروز گردیده باشد شما باید حتما فایل  config را publish نمایید تا قیمت ها را بروز رسانی کنید برای این کار کافیه کد در ترمینال وارد کنید:
+</p>
