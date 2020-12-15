@@ -9,9 +9,7 @@ $ composer require ghaninia/shipping
 <p  dir="rtl">
 حال باید پکیج را درون پروژه خود اضافه کنید برای این کار دستور زیر را وارد کنید
 </p>
-
 <code>
-
     ...config/app.php
     'providers' => [
         ...
@@ -22,9 +20,7 @@ $ composer require ghaninia/shipping
         ...
         'Shipping' =>GhaniniaIR\Shipping\Shipping::class,
     ],
-
 </code>
-
 <h1  dir="rtl">نحوه استفاده</h1>
 <p  dir="rtl">
 در بالای هر فایل خود از کلاس shipping استفاده میکند، از دستور زیر استفاده کنید
@@ -38,10 +34,10 @@ use GhaniniaIR\Shipping\Shipping ;
 برای محاسبه قیمت پست سفارشی طبق الگو زیر عمل باید نمایید:
 </p>
 <ul dir="rtl">
-<li>arg 1 : آیدی استان مبدا</li>
-<li>arg 2 : آیدی استان مقصد</li>
-<li>arg 3 : وزن مرسوله</li>
-<li>arg 4 : قیمت مرسوله</li>
+    <li>arg 1 : آیدی استان مبدا</li>
+    <li>arg 2 : آیدی استان مقصد</li>
+    <li>arg 3 : وزن مرسوله</li>
+    <li>arg 4 : قیمت مرسوله میتواند null باشد.</li>
 </ul>
 <code>
 Shipping::sefarshi( $sourceID , $destination , $weight , $price )->getPrice()
@@ -57,6 +53,12 @@ Shipping::sefarshi( $sourceID , $destination , $weight , $price )->getPrice( tru
 Shipping::pishtaz( $sourceID , $destination , $weight , $price )->getPrice( true )
 </code>
 
-<p>
+<p dir="rtl">
     در صورتی که لیست شرکت بروز گردیده باشد شما باید حتما فایل  config را publish نمایید تا قیمت ها را بروز رسانی کنید برای این کار کافیه کد در ترمینال وارد کنید:
+</p>
+<code>
+    php artisan vendor:publish
+</code>
+<p dir="rtl">
+در پوشه config شما فایلی به اسم shipping.php  دارید بعد از باز کردن فایل میتوانید تعرفه ها را بروز نمایید.
 </p>
