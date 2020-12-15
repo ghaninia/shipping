@@ -2,9 +2,10 @@
 <p  dir="rtl">
 برای نصب دستور زیر را وارد کنید
 </p>
-<code dir="ltr">
+
+```php
 $ composer require ghaninia/shipping
-</code>
+```
 
 <p  dir="rtl">
 حال باید پکیج را درون پروژه خود اضافه کنید برای این کار دستور زیر را وارد کنید
@@ -38,10 +39,10 @@ use GhaniniaIR\Shipping\Shipping ;
 </p>
 
 <ul dir="rtl">
-    <li>arg 1 : آیدی استان مبدا</li>
-    <li>arg 2 : آیدی استان مقصد</li>
-    <li>arg 3 : وزن مرسوله</li>
-    <li>arg 4 : قیمت مرسوله میتواند null باشد.</li>
+    <li><b>arg 1</b> : آیدی استان مبدا</li>
+    <li><b>arg 2</b> : آیدی استان مقصد</li>
+    <li><b>arg 3</b>: وزن مرسوله</li>
+    <li><b>arg 4</b> : قیمت مرسوله میتواند null باشد.</li>
 </ul>
 
 ```php
