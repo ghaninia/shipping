@@ -17,6 +17,8 @@ class ShippingServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        
+        $this->publishes([
+            __DIR__.'/config/shipping.php' => config_path('shipping.php')
+        ], 'config');
     }
 }
