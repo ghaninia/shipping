@@ -49,9 +49,9 @@ use GhaniniaIR\Shipping\Shipping ;
 </ul>
 
 ```php
-Shipping::sefarshi( $sourceID , $destination , $weight , $price )->getPrice()
+Shipping::sefarshi( $sourceID , $destinationID , $weight , $price )->getPrice()
 
-Shipping::pishtaz( $sourceID , $destination , $weight , $price )->getPrice()
+Shipping::pishtaz( $sourceID , $destinationID , $weight , $price )->getPrice()
 ```
 
 <h1 dir="rtl">COD</h1>
@@ -60,9 +60,9 @@ Shipping::pishtaz( $sourceID , $destination , $weight , $price )->getPrice()
 </p>
 
 ```php
-Shipping::sefarshi( $sourceID , $destination , $weight , $price )->getPrice( true )
+Shipping::sefarshi( $sourceID , $destinationID , $weight , $price )->getPrice( true )
 
-Shipping::pishtaz( $sourceID , $destination , $weight , $price )->getPrice( true )
+Shipping::pishtaz( $sourceID , $destinationID , $weight , $price )->getPrice( true )
 ```
 
 <h1 dir="rtl">بروزرسانی تعرفه ها</h1>
@@ -78,7 +78,7 @@ php artisan vendor:publish
 در پوشه config شما فایلی به اسم shipping.php  دارید بعد از باز کردن فایل میتوانید تعرفه ها را بروز نمایید.
 </p>
 
-<table dir="rtl" align="center">
+<table dir="rtl" align="right">
     <thead >
         <tr>
             <th colspan="2">استان های تحت پوشش بهمراه آیدی</th>
