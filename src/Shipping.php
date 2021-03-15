@@ -1,7 +1,7 @@
 <?php 
 namespace GhaniniaIR\Shipping  ; 
 
-class Shipping {
+final class Shipping {
 
     private $type ; // pishtaz or sefarshi
     private $sourcePartId; // id source 
@@ -9,10 +9,19 @@ class Shipping {
     private $weight; // weight marsole
     private $cost = 0 ; // cost marsole
 
-    public static function __callStatic($name, $arguments){
-        if( in_array( strtolower($name) , ["pishtaz" , "sefarshi"]) && sizeof($arguments) >= 3 ){
+    private const TYPE_PISHTAZ   = "pishtaz" ;
+    private const TYPE_SEFARESHI = "sefarshi" ;
+
+    const TYPES = [ self::TYPE_PISHTAZ , self::TYPE_SEFARESHI] ;
+
+    public static function __callStatic($type, $arguments){
+        $type = strtolower($type) ;
+        if( 
+            in_array( $type , self::TYPES ) && 
+            sizeof($arguments) >= 3 )
+        {
             $class = new self()  ;
-            $class->type = strtolower($name) ;
+            $class->type = strtolower($type) ;
             $class->sourcePartId = $arguments[0] ;
             $class->partId = $arguments[1] ;
             $class->weight = $arguments[2] ;
@@ -27,6 +36,7 @@ class Shipping {
     public function getPrice( $codRequest = false ){
         $bime = config("shipping.bime") ;
         $tax  = config("shipping.maliat") ;
+
         $inSideKarmozd = config("shipping.inSideKarmozd") ;
         $outSideKarmozd = config("shipping.outSideKarmozd") ;
         $haghSabt = config("shipping.haghsabt") ;

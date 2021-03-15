@@ -15,7 +15,10 @@
     "autoload": {
         "psr-4": {
             "GhaniniaIR\\Shipping\\" : "src/" 
-        }
+        } ,
+        "files": [
+            "src/helper.php"
+        ]
     },
     "extra": {
         "laravel": {
@@ -23,5 +26,8 @@
                 "GhaniniaIR\\Shipping\\ShippingServiceProvider"
             ]
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
     }
 }
