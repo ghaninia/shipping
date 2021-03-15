@@ -81,7 +81,7 @@ final class Shipping {
             $twiceLastPart = $twiceLastValue[ $partType ] ;
             
             $convertWeight = ( ($weight - $twiceLastKey) / 1000 ) ; // به ازای هر کیلوگرم
-            if( !( $type == "sefarshi" && $weightType == 5000  && $partType == "insidePart" ) ){
+            if( !( $type == self::TYPE_SEFARESHI && $weightType == 5000  && $partType == "insidePart" ) ){
                 $price = ($convertWeight * $price) + $twiceLastPart ;
             }
         }
@@ -129,7 +129,7 @@ final class Shipping {
         {
             $weightType = 3000 ;
         }
-        else if ($this->weight >= 3001 && $this->weight <= 5000 && $type == "sefarshi" )
+        else if ($this->weight >= 3001 && $this->weight <= 5000 && $type == self::TYPE_SEFARESHI )
         {
             $weightType = 5000 ;
         }

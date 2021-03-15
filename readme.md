@@ -11,7 +11,7 @@ $ composer require ghaninia/shipping
 ```
 
 <p  dir="rtl">
-حال باید پکیج را درون پروژه خود اضافه کنید برای این کار دستور زیر را وارد کنید
+درصورتی که از لاراول استفاده میکنید و در غیر اینصورت بیخیال این قضیه بشید !‌
 </p>
 
 ```php
@@ -35,6 +35,8 @@ $ composer require ghaninia/shipping
 
 ```php
 use GhaniniaIR\Shipping\Shipping ;
+or 
+use Shipping ;
 ```
 
 <p dir="rtl">
@@ -71,7 +73,7 @@ Shipping::pishtaz( $sourceID , $destinationID , $weight , $price )->getPrice( tr
 </p>
 
 ```php
-php artisan vendor:publish
+php artisan vendor:publish --tag=config
 ```
 
 <p dir="rtl">
