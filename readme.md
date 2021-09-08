@@ -205,7 +205,7 @@ php artisan vendor:publish --tag=config
         </tr>
         <tr>
             <td>63</td>
-            <td>هرمزگان </td>
+            <td>هرمزگان</td>
         </tr>
         <tr>
             <td>64</td>
