@@ -143,97 +143,97 @@ final class Shipping {
     {
         $result = array();
         switch ($sourcePartId) {
-            case 1:
+            case 55:
                 $result = array(13,31,11,10,9);
                 break;
-            case 2:
+            case 64:
                 $result = array(15,12,8,13);
                 break;
-            case 3:
+            case 36:
                 $result = array(15,12,16);
                 break;
-            case 4:
+            case 39:
                 $result = array(27,20,24,28,21);
                 break;
-            case 5:
+            case 40:
                 $result = array(21,28,6,25,22,23);
                 break;
-            case 6:
+            case 42:
                 $result = array(5,25,9,10,11,20,24,28);
                 break;
-            case 7:
+            case 41:
                 $result = array(29,9,30,25);
                 break;
-            case 8:
+            case 58:
                 $result = array(2,12,17,11,31,13);
                 break;
-            case 9:
+            case 52:
                 $result = array(6,25,7,29,14,13,1,10);
                 break;
-            case 10:
+            case 57:
                 $result = array(1,6,9,11);
                 break;
-            case 11:
+            case 34:
                 $result = array(6,10,1,31,8,17,20);
                 break;
-            case 12:
+            case 51:
                 $result = array(3,16,15,2,8,17,18);
                 break;
-            case 13:
+            case 35:
                 $result = array(14,2,1,31,8,9);
                 break;
-            case 14:
+            case 59:
                 $result = array(29,9,13);
                 break;
-            case 15:
+            case 56:
                 $result = array(3,2,12);
                 break;
-            case 16:
+            case 37:
                 $result = array(3,12,18);
                 break;
-            case 17:
+            case 45:
                 $result = array(18,19,12,8,11,20);
                 break;
-            case 18:
+            case 44:
                 $result = array(17,19,12,16);
                 break;
-            case 19:
+            case 38:
                 $result = array(18,17,20,27);
                 break;
-            case 20:
+            case 47:
                 $result = array(11,17,19,27,6,24,4);
                 break;
-            case 21:
+            case 50:
                 $result = array(23,5,28,4);
                 break;
-            case 22:
+            case 62:
                 $result = array(26,23,5,25,30);
                 break;
-            case 23:
+            case 63:
                 $result = array(26,22,5,21);
                 break;
-            case 24:
+            case 46:
                 $result = array(6,28,4,20);
                 break;
-            case 25:
+            case 53:
                 $result = array(30,6,5,22,9,7);
                 break;
-            case 26:
+            case 43:
                 $result = array(23,22,30);
                 break;
-            case 27:
+            case 48:
                 $result = array(4,20,19);
                 break;
-            case 28:
+            case 49:
                 $result = array(6,24,4,21,5);
                 break;
-            case 29:
+            case 60:
                 $result = array(14,9,7);
                 break;
-            case 30:
+            case 54:
                 $result = array(26,22,25,7);
                 break;
-            case 31:
+            case 61:
                 $result = array(13,8,1,11);
                 break;
             default:
