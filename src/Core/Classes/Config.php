@@ -1,10 +1,10 @@
 <?php
 
-namespace GhaniniaIR\Shipping\Classes;
+namespace GhaniniaIR\Shipping\Core\Classes;
 
 class Config
 {
-    public const CONFIG_PATH = __DIR__ . "/../configs/shipping.php";
+    public const CONFIG_PATH = __DIR__ . "/../../configs/shipping.php";
 
     private static $configs;
 

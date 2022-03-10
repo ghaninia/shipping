@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\stub;
 
-use GhaniniaIR\Shipping\Classes\Config as OriginalConfig;
+use GhaniniaIR\Shipping\Core\Classes\Config as OriginalConfig;
 
 class TestConfig extends OriginalConfig
 {

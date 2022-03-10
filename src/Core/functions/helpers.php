@@ -1,6 +1,6 @@
 <?php
 
-use GhaniniaIR\Shipping\Classes\Config;
+use GhaniniaIR\Shipping\Core\Classes\Config;
 
 if (function_exists("settings")) {
 
