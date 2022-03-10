@@ -5,20 +5,23 @@
     "authors": [
         {
             "name": "Amin Ghaninia",
-            "email": "info@ghaninia.ir"
+            "email": "info@ghaninia.ir",
+            "homepage": "https://ghaninia.ir"
         }
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0"
+        "php": "^8.0"
     },
     "autoload": {
         "psr-4": {
-            "GhaniniaIR\\Shipping\\" : "src/" 
-        } ,
-        "files": [
-            "src/helper.php"
-        ]
+            "GhaniniaIR\\Shipping\\" : "src/"
+        } 
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     },
     "extra": {
         "laravel": {
