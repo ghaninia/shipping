@@ -78,6 +78,18 @@ class ProvinceTest extends TestCase
             ->destinationState(13)
             ->provincesNeighbors();
 
-        $this->assertTrue($result) ;
+        $this->assertTrue($result);
+    }
+
+
+    /**
+     * @test
+     */
+    public function getListOfProvinces()
+    {
+        $result = (new Province)->list();
+
+        $this->assertIsArray($result);
+        $this->assertCount(31, $result);
     }
 }

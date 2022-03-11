@@ -10,7 +10,7 @@ class Province
 
     private int $sourceStateID, $destionationStateID;
 
-    public const ALL = [
+    private const ALL = [
         1  => "تهران",
         2  => "گیلان",
         3  => "آذربایجان شرقی",
@@ -155,5 +155,23 @@ class Province
                 $this->destionationStateID,
                 $this->myNightBours($this->sourceStateID)
             );
+    }
+
+
+    /**
+     * Get a list of provinces
+     * 
+     * @param array 
+     */
+    public function list(): array
+    {
+        $output = [];
+        foreach (self::ALL as $id => $name) {
+            $output[] = [
+                "id"   => $id,
+                "name" => $name,
+            ];
+        }
+        return $output;
     }
 }
