@@ -2,42 +2,46 @@
 
 namespace GhaniniaIR\Shipping\Core\Classes;
 
+use GhaniniaIR\Shipping\Core\Enums\ProvinceStatus;
 use GhaniniaIR\Shipping\Core\Exceptions\NotMatchProvinceException;
 
 class Province
 {
+
+    private int $sourceStateID, $destionationStateID;
+
     public const ALL = [
-        1  =>    "تهران",
-        2  =>    "گیلان",
-        3  =>    "آذربایجان شرقی",
-        4  =>    "خوزستان",
-        5  =>    "فارس",
-        6  =>    "اصفهان",
-        7  =>    "خراسان رضوی",
-        8  =>    "قزوین",
-        9  =>    "سمنان",
-        10 =>    "قم",
-        11 =>    "مرکزی",
-        12 =>    "زنجان",
-        13 =>    "مازندران",
-        14 =>    "گلستان",
-        15 =>    "اردبیل",
-        16 =>    "آذربایجان غربی",
-        17 =>    "همدان",
-        18 =>    "کردستان",
-        19 =>    "کرمانشاه",
-        20 =>    "لرستان",
-        21 =>    "بوشهر",
-        22 =>    "کرمان",
-        23 =>    "هرمزگان",
-        24 =>    "چهارمحال و بختیاری",
-        25 =>    "یزد",
-        26 =>    "سیستان و بلوچستان",
-        27 =>    "ایلام",
-        28 =>    "کهگلویه و بویراحمد",
-        29 =>    "خراسان شمالی",
-        30 =>    "خراسان جنوبی",
-        31 =>    "البرز",
+        1  => "تهران",
+        2  => "گیلان",
+        3  => "آذربایجان شرقی",
+        4  => "خوزستان",
+        5  => "فارس",
+        6  => "اصفهان",
+        7  => "خراسان رضوی",
+        8  => "قزوین",
+        9  => "سمنان",
+        10 => "قم",
+        11 => "مرکزی",
+        12 => "زنجان",
+        13 => "مازندران",
+        14 => "گلستان",
+        15 => "اردبیل",
+        16 => "آذربایجان غربی",
+        17 => "همدان",
+        18 => "کردستان",
+        19 => "کرمانشاه",
+        20 => "لرستان",
+        21 => "بوشهر",
+        22 => "کرمان",
+        23 => "هرمزگان",
+        24 => "چهارمحال و بختیاری",
+        25 => "یزد",
+        26 => "سیستان و بلوچستان",
+        27 => "ایلام",
+        28 => "کهگلویه و بویراحمد",
+        29 => "خراسان شمالی",
+        30 => "خراسان جنوبی",
+        31 => "البرز",
     ];
 
     /**
@@ -58,9 +62,9 @@ class Province
      * 
      * @throws NotFoundProvince
      */
-    public function myNightBours(int $ID)
+    public function myNightBours(int $stateID)
     {
-        return match ($ID) {
+        return match ($stateID) {
             1  => [13, 31, 11, 10, 9],
             2  => [15, 12, 8, 13],
             3  => [15, 12, 16],
@@ -94,5 +98,62 @@ class Province
             31 => [13, 8, 1, 11],
             default => throw new NotMatchProvinceException()
         };
+    }
+
+    /**
+     * Set the value of the province of origin
+     * @param int $weight
+     * 
+     * @return self
+     */
+    public function sourceState(int $stateID)
+    {
+        $this->find($stateID);
+        $this->sourceStateID = $stateID;
+        return $this;
+    }
+
+    /**
+     * Set the value of the destination province
+     * @param int $weight
+     * 
+     * @return self
+     */
+    public function destinationState(int $stateID)
+    {
+        $this->find($stateID);
+        $this->destionationStateID = $stateID;
+        return $this;
+    }
+
+    /** 
+     * The situation of the two provinces together
+     * 
+     * @return ProvinceStatus
+     */
+    public function situationStatesTogether()
+    {
+
+        if ($this->destionationStateID == $this->sourceStateID)
+            return ProvinceStatus::InSide;
+
+        elseif ($this->provincesNeighbors())
+            return ProvinceStatus::Neighbor;
+
+        return ProvinceStatus::Far;
+    }
+
+    /**
+     * Are the two provinces neighbors?
+     * 
+     * @return boolean 
+     */
+    public function provincesNeighbors(): bool
+    {
+        return
+            in_array(
+                $this->destionationStateID,
+                $this->myNightBours($this->sourceStateID)
+            );
     }
 }

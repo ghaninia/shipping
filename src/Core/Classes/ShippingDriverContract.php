@@ -15,8 +15,6 @@ abstract class ShippingDriverContract
     protected int $cost         = 0;
     protected bool $cod         = false;
 
-    protected $sourceStateID, $destionationStateID;
-
     /**
      * Set the weight length
      * @param int $weight
@@ -74,30 +72,6 @@ abstract class ShippingDriverContract
     protected function cost(int $cost)
     {
         $this->cost = $cost;
-        return $this;
-    }
-
-    /**
-     * Set the value of the province of origin
-     * @param int $weight
-     * 
-     * @return self
-     */
-    protected function sourceState(int $stateID)
-    {
-        $this->sourceStateID = $stateID;
-        return $this;
-    }
-
-    /**
-     * Set the value of the destination province
-     * @param int $weight
-     * 
-     * @return self
-     */
-    protected function destinationState(int $stateID)
-    {
-        $this->destionationStateID = $stateID;
         return $this;
     }
 
