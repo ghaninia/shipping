@@ -4,7 +4,7 @@ namespace GhaniniaIR\Shipping\Core\Exceptions;
 
 use Exception;
 
-class NotFoundProvinceException extends Exception
+class NotMatchProvinceException extends Exception
 {
     public function message()
     {

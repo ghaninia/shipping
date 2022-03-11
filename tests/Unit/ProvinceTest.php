@@ -1,7 +1,7 @@
 <?php
 
 use GhaniniaIR\Shipping\Core\Classes\Province;
-use GhaniniaIR\Shipping\Core\Exceptions\NotFoundProvinceException;
+use GhaniniaIR\Shipping\Core\Exceptions\NotMatchProvinceException;
 use PHPUnit\Framework\TestCase;
 
 class ProvinceTest extends TestCase
@@ -19,7 +19,7 @@ class ProvinceTest extends TestCase
      */
     public function noProvinceFound()
     {
-        $this->expectException(NotFoundProvinceException::class);
+        $this->expectException(NotMatchProvinceException::class);
         $result = (new Province)->find(32);
     }
 }

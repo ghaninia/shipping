@@ -2,7 +2,7 @@
 
 namespace GhaniniaIR\Shipping\Core\Classes;
 
-use GhaniniaIR\Shipping\Core\Exceptions\NotFoundProvinceException;
+use GhaniniaIR\Shipping\Core\Exceptions\NotMatchProvinceException;
 
 class Province
 {
@@ -49,7 +49,7 @@ class Province
      */
     public function find(int $ID)
     {
-        return self::ALL[$ID] ?? throw new NotFoundProvinceException();
+        return self::ALL[$ID] ?? throw new NotMatchProvinceException();
     }
 
     /**
@@ -92,7 +92,7 @@ class Province
             29 => [14, 9, 7],
             30 => [26, 22, 25, 7],
             31 => [13, 8, 1, 11],
-            default => throw new NotFoundProvinceException()
+            default => throw new NotMatchProvinceException()
         };
     }
 }

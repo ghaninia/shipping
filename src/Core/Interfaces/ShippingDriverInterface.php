@@ -2,6 +2,6 @@
 
 namespace GhaniniaIR\Shipping\Core\Interfaces;
 
-interface ShippingDriverContract
+interface ShippingDriverInterface
 {
 }
