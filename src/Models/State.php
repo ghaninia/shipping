@@ -6,12 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class State extends Model
 {
-
-    public $primaryKey = "id" ;
-
     protected $fillable = [
         "name"
-    ] ;
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -28,7 +25,9 @@ class State extends Model
     {
         return $this->belongsToMany(
             State::class,
-            "nighbours"
+            "nighbours",
+            "state_id",
+            "to_state_id",
         )->using(Nighbour::class);
     }
 }

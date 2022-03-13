@@ -6,7 +6,8 @@ use GhaniniaIR\Shipping\Core\Classes\EnumAbstract;
 
 class EnumState extends EnumAbstract
 {
-    const Neighbor = "neighbor";
-    const InSide = "inside";
-    const Far = "far" ;
+    const InCity = "IN_CITY";
+    const Neighbor = "NEIGHBOR";
+    const InSide = "IN_SIDE";
+    const Far = "FAR";
 }
