@@ -17,3 +17,13 @@ if (function_exists("settings")) {
         return Config::getInstance()->get($key, $default);
     }
 }
+
+if (!function_exists('dd')) {
+    function dd()
+    {
+        foreach (func_get_args() as $x) {
+            var_dump($x);
+        }
+        die;
+    }
+}

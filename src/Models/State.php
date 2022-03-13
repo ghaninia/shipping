@@ -6,16 +6,29 @@ use Illuminate\Database\Eloquent\Model;
 
 class State extends Model
 {
+
+    public $primaryKey = "id" ;
+
+    protected $fillable = [
+        "name"
+    ] ;
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function cities()
     {
         return $this->hasMany(City::class);
     }
 
-    public function nightbours()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function nighbours()
     {
         return $this->belongsToMany(
             State::class,
-            "nightbours"
-        );
+            "nighbours"
+        )->using(Nighbour::class);
     }
 }
