@@ -1,5 +1,8 @@
 <?php
 
+namespace Services;
+
+use GhaniniaIR\Shipping\Core\Enums\EnumState;
 use GhaniniaIR\Shipping\Models\City;
 use PHPUnit\Framework\TestCase;
 
@@ -23,7 +26,7 @@ class LocationServiceTest extends TestCase
     }
 
     /** @test */
-    public  function getStateListWithNighbours()
+    public function getStateListWithNighbours()
     {
         $list = (new \GhaniniaIR\Shipping\Core\Services\LocationService())->list(true);
 
@@ -47,7 +50,6 @@ class LocationServiceTest extends TestCase
 
         $this->assertTrue($result);
     }
-
 
 
     /** @test */
@@ -91,5 +93,66 @@ class LocationServiceTest extends TestCase
             ->fellowCitizenTogether();
 
         $this->assertFalse($result);
+    }
+
+
+    /** @test */
+    public function situationStatesTogetherWhenInCity()
+    {
+        $city = City::with("state")->first();
+
+        $result = (new \GhaniniaIR\Shipping\Core\Services\LocationService())
+            ->source($city->state, $city)
+            ->destination($city->state, $city)
+            ->situationStatesTogether();
+
+        $this->assertEquals($result, EnumState::InCity);
+    }
+
+    /** @test */
+    public function situationStatesTogetherWhenInSide()
+    {
+
+        $state = \GhaniniaIR\Shipping\Models\State::with("cities")->first();
+
+        $result = (new \GhaniniaIR\Shipping\Core\Services\LocationService())
+            ->source($state, $state->cities[0])
+            ->destination($state, $state->cities[1])
+            ->situationStatesTogether();
+
+        $this->assertEquals($result, EnumState::InSide);
+    }
+
+    /** @test */
+    public function situationStatesTogetherWhenNeighbor()
+    {
+
+        $state = \GhaniniaIR\Shipping\Models\State::with("cities")->first();
+        $nighbourState = $state->nighbours->first();
+
+        $result = (new \GhaniniaIR\Shipping\Core\Services\LocationService())
+            ->source($state, $state->cities->first())
+            ->destination($nighbourState, $nighbourState->cities->first())
+            ->situationStatesTogether();
+
+        $this->assertEquals($result, EnumState::Neighbor);
+    }
+
+    /** @test */
+    public function situationStatesTogetherWhenFar()
+    {
+
+        $state = \GhaniniaIR\Shipping\Models\State::with("cities")->first();
+
+        $farState = \GhaniniaIR\Shipping\Models\State::whereDoesntHave("nighbours", function ($query) use ($state) {
+            $query->where("states.id", $state->id);
+        })->first();
+
+        $result = (new \GhaniniaIR\Shipping\Core\Services\LocationService())
+            ->source($state, $state->cities->first())
+            ->destination($farState, $farState->cities->first())
+            ->situationStatesTogether();
+
+        $this->assertEquals($result, EnumState::Neighbor);
     }
 }

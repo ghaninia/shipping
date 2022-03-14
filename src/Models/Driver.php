@@ -10,6 +10,8 @@ class Driver extends Model
         "driver_class"
     ] ;
 
+    public $timestamps = false ;
+
     public  function tariffs () {
         return $this->hasMany(Tariff::class) ;
     }

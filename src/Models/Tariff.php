@@ -21,6 +21,8 @@ class Tariff extends Model
         "max_weight" ,
     ] ;
 
+    public $timestamps = false ;
+
     public function driver() {
         return $this->belongsTo(Driver::class ) ;
     }

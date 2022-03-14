@@ -86,10 +86,20 @@ abstract class ShippingDriverContract
         return $this;
     }
 
+
+
     /**
      * Calculate shipping price
      * 
      * @return int 
      */
     abstract public function calculate(): int;
+
+    /**
+     * @return string
+     */
+    abstract public function className() : string ;
+
+
+
 }

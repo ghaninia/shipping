@@ -10,6 +10,8 @@ class Year extends Model
         "year"
     ] ;
 
+    public $timestamps = false ;
+
     public function tariffs() {
         return $this->hasMany(Tariff::class) ;
     }

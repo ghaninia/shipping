@@ -11,4 +11,7 @@ class Nighbour extends Pivot
         "state_id" ,
         "to_state_id"
     ] ;
+
+    public $timestamps = false ;
+
 }
