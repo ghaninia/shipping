@@ -4,25 +4,24 @@ namespace GhaniniaIR\Shipping\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
+class TariffDetail extends Model
 {
     protected $fillable = [
-        "name" ,
-        "is_provincial_capital" ,
-        "state_id" ,
+        "tariff_id" ,
+        "min_weight" ,
+        "max_weight" ,
+        "cost" ,
+        "type" // in : EnumState
     ] ;
-
-    protected $casts = [
-        "is_provincial_capital" => "boolean"
-    ];
 
     public $timestamps = false ;
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function state()
+    public function tariff()
     {
-        return $this->belongsTo(State::class);
+        return $this->belongsTo(Tariff::class) ;
     }
+
 }

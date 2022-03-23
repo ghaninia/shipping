@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__."/functions/helpers.php" ;
+
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 $capsule = new Capsule;
@@ -15,3 +17,4 @@ $capsule->addConnection([
 $capsule->setAsGlobal();
 // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
 $capsule->bootEloquent();
+

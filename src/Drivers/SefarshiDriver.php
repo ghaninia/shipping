@@ -7,12 +7,6 @@ use GhaniniaIR\Shipping\Core\Interfaces\ShippingDriverInterface;
 
 class SefarshiDriver extends ShippingDriverContract implements ShippingDriverInterface
 {
-
-    public function className(): string
-    {
-        return __CLASS__ ;
-    }
-
     public function calculate(): int
     {
     }

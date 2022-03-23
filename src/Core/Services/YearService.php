@@ -6,18 +6,22 @@ use GhaniniaIR\Shipping\Models\Year;
 
 class YearService
 {
-    public function current() : int {
-        return verta()->year ;
+
+    public int $currentYear ;
+
+    public function __construct(int $year = null)
+    {
+        $this->currentYear = $year ?? verta()->year ;
     }
 
     /**
      * create or new year
      * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model
      */
-    public function firstOrCreate()
+    public function current() : Year
     {
         return Year::query()->firstOrCreate([
-            "year" => $this->current()
+            "year" => $this->currentYear
         ]) ;
     }
 }

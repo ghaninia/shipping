@@ -20,7 +20,6 @@
             "GhaniniaIR\\Shipping\\" : "src/"
         } ,
         "files": [
-            "src/functions/helpers.php",
             "src/index.php"
         ]
     },

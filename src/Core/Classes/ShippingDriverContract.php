@@ -2,18 +2,30 @@
 
 namespace GhaniniaIR\Shipping\Core\Classes;
 
-abstract class ShippingDriverContract
+use GhaniniaIR\Shipping\Core\Services\DriverService;
+use GhaniniaIR\Shipping\Core\Services\TariffService;
+use GhaniniaIR\Shipping\Core\Services\YearService;
+use GhaniniaIR\Shipping\Models\Driver;
+use GhaniniaIR\Shipping\Core\Services\LocationService;
+use GhaniniaIR\Shipping\Models\TariffDetail;
+
+abstract class ShippingDriverContract extends LocationService
 {
 
     protected int $weight       = 0;
-    protected int $vat          = 0;
-    protected int $tax          = 0;
-    protected int $insurance    = 0;
     protected int $length       = 0;
     protected int $width        = 0;
     protected int $height       = 0;
     protected int $cost         = 0;
     protected bool $cod         = false;
+
+    /**
+     * Calculate shipping price
+     *
+     * @return int
+     */
+    abstract public function calculate(): int;
+
 
     /**
      * Set the weight length
@@ -78,7 +90,7 @@ abstract class ShippingDriverContract
     /**
      * Payment on the spot
      * 
-     * @return bool
+     * @return self
      */
     public function cod()
     {
@@ -86,20 +98,30 @@ abstract class ShippingDriverContract
         return $this;
     }
 
-
+    /**
+     * @return Driver
+     */
+    public function driver() : Driver
+    {
+        return (new DriverService())->get(__CLASS__) ;
+    }
 
     /**
-     * Calculate shipping price
-     * 
-     * @return int 
+     * A tariff that matches our details
+     * @return TariffDetail
+     * @throws \Exception
      */
-    abstract public function calculate(): int;
+    public function tariffDetail() : TariffDetail
+    {
+        $result = (new TariffService(
+            $this->driver() ,
+            (new YearService())->current() ,
+            $this->weight ,
+            $this->situationStatesTogether() ,
+            $this->sourceCity
+        ))
+        ->search();
 
-    /**
-     * @return string
-     */
-    abstract public function className() : string ;
-
-
-
+        return is_null($result) ? throw new \Exception("Tariff is not supported!") : $result ;
+    }
 }

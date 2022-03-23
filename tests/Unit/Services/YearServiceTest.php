@@ -12,9 +12,9 @@ class YearServiceTest extends TestCase
     {
         $yearService = (new YearService()) ;
 
-        $currentYear = $yearService->current() ;
+        $currentYear = $yearService->currentYear;
 
-        $currentInstance = $yearService->firstOrCreate() ;
+        $currentInstance = $yearService->current() ;
 
         $this->assertEquals($currentYear , $currentInstance->year) ;
 
