@@ -8,17 +8,16 @@ class Tariff extends Model
 {
     protected $fillable = [
         "driver_id" ,
-        "cod" , ### هزینه تحویل در محل
-        "vat" , ### ارزش افزوده
-        "tax" , ### ماالیات
-        "registration_fee" , ### هزینه ثبت
-        "right_headquarters" , ### خق مقر
-        "insurance" , ### بیمه
-        "intra_city_commission" , ### کمیسیون درون شهری
-        "suburban_commission" , ### کمیسیون برون شهر
-        "min_weight" , ### حداقل وزن
-        "max_weight" , ### حداکثر وزن
-        "is_provincial_capital" ### ایا مرکز استان است یا خیر
+        "cod" , ### On-site delivery cost
+        "vat" , ### Added value
+        "tax" , ### Taxation
+        "registration_fee" ,
+        "right_headquarters" , 
+        "insurance" ,
+        "intra_city_commission" ,
+        "suburban_commission" , 
+        "min_weight" , 
+        "max_weight" , 
     ] ;
 
     public $timestamps = false ;

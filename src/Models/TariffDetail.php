@@ -11,7 +11,8 @@ class TariffDetail extends Model
         "min_weight" ,
         "max_weight" ,
         "cost" ,
-        "type" // in : EnumState
+        "type" , // in : EnumState
+        "is_provincial_capital"
     ] ;
 
     public $timestamps = false ;
