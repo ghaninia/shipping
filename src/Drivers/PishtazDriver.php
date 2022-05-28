@@ -9,12 +9,10 @@ class PishtazDriver extends ShippingDriverContract implements ShippingDriverInte
 {
     public function calculate(): int
     {
-        $tariffDetail = $this->tariffDetail() ;
-        $tariff = $tariffDetail->tariff ;
+        $tariffDetail = $this->tariffDetail();
+        $tariff = $tariffDetail->tariff;
+        $result = $tariffDetail->cost;
 
-         $result =
-            $tariffDetail->cost  ;
-
-         return $result ;
+        return $result;
     }
 }

@@ -8,7 +8,6 @@ class Tariff extends Model
 {
     protected $fillable = [
         "driver_id" ,
-        "year_id" ,
         "cod" , ### هزینه تحویل در محل
         "vat" , ### ارزش افزوده
         "tax" , ### ماالیات
@@ -33,13 +32,6 @@ class Tariff extends Model
      */
     public function driver() {
         return $this->belongsTo(Driver::class ) ;
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public  function year() {
-        return $this->belongsTo( Year::class ) ;
     }
 
     /**

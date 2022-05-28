@@ -5,23 +5,21 @@ namespace GhaniniaIR\Shipping\Core\Services;
 use GhaniniaIR\Shipping\Models\City;
 use GhaniniaIR\Shipping\Models\Driver;
 use GhaniniaIR\Shipping\Models\TariffDetail;
-use GhaniniaIR\Shipping\Models\Year;
 
 class TariffService
 {
+
     /**
      * @param Driver $driver
-     * @param Year $year
      * @param int $weight
      * @param string|null $type
      * @param City $city
      */
     public function __construct(
         protected Driver $driver ,
-        protected Year $year ,
         protected int $weight ,
         protected ?string $type = null ,
-        protected  City $city
+        protected City $city
     ){}
 
     /**
@@ -35,8 +33,7 @@ class TariffService
                 ->whereHas("tariff" , function($query){
                     $query
                         ->where("is_provincial_capital" , $this->city->is_provincial_capital )
-                        ->where("driver_id" , $this->driver->id )
-                        ->where("year_id" , $this->year->id ) ;
+                        ->where("driver_id" , $this->driver->id );
                 })
                 ->where(function($query){
                     $query

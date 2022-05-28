@@ -2,12 +2,11 @@
 
 namespace GhaniniaIR\Shipping\Core\Classes;
 
+use GhaniniaIR\Shipping\Models\Driver;
+use GhaniniaIR\Shipping\Models\TariffDetail;
 use GhaniniaIR\Shipping\Core\Services\DriverService;
 use GhaniniaIR\Shipping\Core\Services\TariffService;
-use GhaniniaIR\Shipping\Core\Services\YearService;
-use GhaniniaIR\Shipping\Models\Driver;
 use GhaniniaIR\Shipping\Core\Services\LocationService;
-use GhaniniaIR\Shipping\Models\TariffDetail;
 
 abstract class ShippingDriverContract extends LocationService
 {
@@ -101,9 +100,9 @@ abstract class ShippingDriverContract extends LocationService
     /**
      * @return Driver
      */
-    public function driver() : Driver
+    public function driver(): Driver
     {
-        return (new DriverService())->get(__CLASS__) ;
+        return (new DriverService())->get(static::class);
     }
 
     /**
@@ -111,17 +110,16 @@ abstract class ShippingDriverContract extends LocationService
      * @return TariffDetail
      * @throws \Exception
      */
-    public function tariffDetail() : TariffDetail
+    public function tariffDetail(): TariffDetail
     {
         $result = (new TariffService(
-            $this->driver() ,
-            (new YearService())->current() ,
-            $this->weight ,
-            $this->situationStatesTogether() ,
+            $this->driver(),
+            $this->weight,
+            $this->situationStatesTogether(),
             $this->sourceCity
         ))
-        ->search();
+            ->search();
 
-        return is_null($result) ? throw new \Exception("Tariff is not supported!") : $result ;
+        return is_null($result) ? (throw new \Exception("Tariff is not supported!")) : $result;
     }
 }
