@@ -112,12 +112,13 @@ abstract class ShippingDriverContract extends LocationService
      */
     public function tariffDetail(): TariffDetail
     {
-        $result = (new TariffService(
-            $this->driver(),
-            $this->weight,
-            $this->situationStatesTogether(),
-            $this->sourceCity
-        ))
+        $result =
+            (new TariffService(
+                $this->driver(),
+                $this->weight,
+                $this->situationStatesTogether(),
+                $this->sourceCity
+            ))
             ->search();
 
         return is_null($result) ? (throw new \Exception("Tariff is not supported!")) : $result;

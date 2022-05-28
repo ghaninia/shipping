@@ -7,7 +7,7 @@ use GhaniniaIR\Shipping\Core\Interfaces\ShippingDriverInterface;
 
 class PishtazDriver extends ShippingDriverContract implements ShippingDriverInterface
 {
-    public function calculate(): int
+    final public function calculate(): int
     {
         $tariffDetail = $this->tariffDetail();
         $tariff = $tariffDetail->tariff;
