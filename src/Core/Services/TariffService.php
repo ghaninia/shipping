@@ -12,13 +12,13 @@ class TariffService
     /**
      * @param Driver $driver
      * @param int $weight
-     * @param string|null $type
+     * @param string $type
      * @param City $city
      */
     public function __construct(
         protected Driver $driver,
         protected int $weight,
-        protected ?string $type = null,
+        protected string $type,
         protected City $city
     ) {
     }
@@ -31,11 +31,11 @@ class TariffService
     {
         $tariff =
             TariffDetail::with("tariff")
-            ->where("is_provincial_capital", $this->city->is_provincial_capital)
             ->whereHas("tariff", function ($query) {
                 $query->where("driver_id", $this->driver->id);
             })
             ->where(function ($query) {
+                ### weight search
                 $query
                     ->where(function ($query) {
                         $query
@@ -48,7 +48,9 @@ class TariffService
                             ->whereNull("max_weight");
                     });
             })
+            ->where("is_provincial_center", $this->city->is_provincial_capital)
             ->when($this->type, function ($query) {
+                ### type search
                 $query->where("type", $this->type);
             })
             ->first();

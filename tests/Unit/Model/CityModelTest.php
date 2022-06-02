@@ -1,6 +1,6 @@
 <?php
 
-namespace Model;
+namespace Tests\Unit\Model;
 
 use GhaniniaIR\Shipping\Models\City;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

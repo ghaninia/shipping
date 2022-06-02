@@ -17,6 +17,10 @@ class TariffDetail extends Model
 
     public $timestamps = false ;
 
+    public $casts = [
+        "is_provincial_capital" => "boolean"
+    ];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

@@ -19,7 +19,7 @@
             "GhaniniaIR\\Shipping\\" : "src/"
         } ,
         "files": [
-            "src/index.php"
+            "src/bootstrap.php"
         ]
     },
     "autoload-dev": {

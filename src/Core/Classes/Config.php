@@ -1,11 +1,10 @@
 <?php
 
 namespace GhaniniaIR\Shipping\Core\Classes;
+use GhaniniaIR\Shipping\ShippingSystem;
 
 class Config
 {
-    public const CONFIG_PATH = __DIR__ . "/../../configs/shipping.php";
-
     private static $configs;
 
     private function __construct()
@@ -18,7 +17,7 @@ class Config
      */
     public static function getInstance()
     {
-        isset(self::$configs) ? static::$configs : static::$configs = require(static::CONFIG_PATH);
+        isset(self::$configs) ? static::$configs : static::$configs = require(ShippingSystem::$config);
 
         return new static();
     }

@@ -29,10 +29,10 @@ class LocationService
     /**
      * Set the origin
      * @param State $state
-     * @param City $city
+     * @param City|null $city
      * @return $this
      */
-    public function source(State $state, City $city = null)
+    public function source(State $state, ?City $city = null)
     {
         $this->sourceState = $state;
         $this->sourceCity = $city;
@@ -43,10 +43,10 @@ class LocationService
     /**
      * Set the destination
      * @param State $state
-     * @param City $city
+     * @param City|null $city
      * @return $this
      */
-    public function destination(State $state, City $city = null)
+    public function destination(State $state, ?City $city = null)
     {
         $this->destinationState = $state;
         $this->destinationCity = $city;

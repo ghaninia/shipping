@@ -1,5 +1,5 @@
 <?php
 
 return [
-    "default" => \GhaniniaIR\Shipping\Drivers\PishtazDriver::class
+    "default" => \GhaniniaIR\Shipping\Drivers\PishtazDriver::class ,
 ];

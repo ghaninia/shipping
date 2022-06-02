@@ -2,6 +2,7 @@
 
 namespace GhaniniaIR\Shipping\Core\Classes;
 
+use GhaniniaIR\Shipping\Core\Exceptions\NotMatchProvinceException;
 use GhaniniaIR\Shipping\Models\Driver;
 use GhaniniaIR\Shipping\Models\TariffDetail;
 use GhaniniaIR\Shipping\Core\Services\DriverService;
@@ -32,7 +33,7 @@ abstract class ShippingDriverContract extends LocationService
      * 
      * @return self
      */
-    protected function weight(int $weight)
+    public function weight(int $weight)
     {
         $this->weight = $weight;
         return $this;
@@ -44,7 +45,7 @@ abstract class ShippingDriverContract extends LocationService
      * 
      * @return self
      */
-    protected function length(int $length)
+    public function length(int $length)
     {
         $this->length = $length;
         return $this;
@@ -56,7 +57,7 @@ abstract class ShippingDriverContract extends LocationService
      * 
      * @return self
      */
-    protected function width(int $width)
+    public function width(int $width)
     {
         $this->width = $width;
         return $this;
@@ -68,7 +69,7 @@ abstract class ShippingDriverContract extends LocationService
      * 
      * @return self
      */
-    protected function height(int $height)
+    public function height(int $height)
     {
         $this->height = $height;
         return $this;
@@ -80,7 +81,7 @@ abstract class ShippingDriverContract extends LocationService
      * 
      * @return self
      */
-    protected function cost(int $cost)
+    public function cost(int $cost)
     {
         $this->cost = $cost;
         return $this;
@@ -121,6 +122,10 @@ abstract class ShippingDriverContract extends LocationService
             ))
             ->search();
 
-        return is_null($result) ? (throw new \Exception("Tariff is not supported!")) : $result;
+        if(is_null($result)){
+            throw new NotMatchProvinceException() ;
+        }
+
+        return $result ;
     }
 }
