@@ -13,13 +13,18 @@ class PishtazDriver extends ShippingDriverContract implements ShippingDriverInte
         $tariffDetail = $this->tariffDetail();
         $tariff = $tariffDetail->tariff;
 
-        if(
-            !! $tariff->max_weight &&
-            !! $tariff->min_weight &&
-            !($tariff->max_weight >= $this->weight) &&
-            !($tariff->min_weight <= $this->weight)
-        ){
-            throw new NotMatchProvinceException("Tariff is not supported! Because the amount of weight is not supported.") ;
+        if(!is_null($tariff->max_weight) && !($tariff->max_weight >= $this->weight) )
+        {
+            throw new NotMatchProvinceException(
+                sprintf("Tariff is not supported! Because the amount of weight is not supported. maximum weight is %s" , $tariff->max_weight )
+            );
+        }
+
+        if(!is_null($tariff->min_weight) && !($tariff->min_weight < $this->weight) )
+        {
+            throw new NotMatchProvinceException(
+                sprintf("Tariff is not supported! Because the amount of weight is not supported. minimum weight is %s" , $tariff->min_weight )
+            );
         }
 
         $total  = $tariff->code ;
