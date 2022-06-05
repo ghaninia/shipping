@@ -16,6 +16,18 @@ composer require ghaninia/shipping
 vendor\bin\phpunit 
 ```
 
+<p>✔If you use package on laravel you should add below command to app.php <p>
+
+```php 
+### config/app.php
+<?php
+    ....
+    'providers' => [
+        ...
+        GhaniniaIR\Shipping\ShippingServiceProvider::class, ### ✔
+    ],
+```
+
 <p>Receive information of cities and provinces and their details</p>
 
 ```php
@@ -78,17 +90,10 @@ $result = (new SefarshiDriver())
 
 <h3>Reconnection</h3>
 <p>If you want to change the type of connection to the database, follow the code below</p>
+<h5>Laravel:</h5>
 
-```php
-<?php 
-
-use GhaniniaIR\Shipping\ShippingSystem;
-
-ShippingSystem::reconnection([
-    'driver' => 'sqlite',
-    'database' => ___DATABASE-PATH__,
-    'foreign_key_constraints' => true,
-    'strict' => true,
-]);
+```composer log
+php artisan vendor:publish --tag:shipping --force
 ```
-<p>This package uses the <a href="https://github.com/illuminate/database">illumnate</a> to connect to the database</p>
+
+It will then be published to you in the database and configuration file

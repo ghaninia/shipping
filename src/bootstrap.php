@@ -1,8 +1,10 @@
 <?php
 
 use GhaniniaIR\Shipping\Core\Classes\Config;
+use GhaniniaIR\Shipping\PostageCalculator;
 
-if (function_exists("settings")) {
+
+if (!function_exists("settings")) {
     /**
      * get config in sys
      * @param string $key
@@ -27,3 +29,6 @@ if (!function_exists('dd')) {
         die;
     }
 }
+
+PostageCalculator::reconfig(__DIR__ . "/configs/shipping.php");
+new PostageCalculator();
