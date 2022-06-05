@@ -3,19 +3,23 @@
 namespace GhaniniaIR\Shipping\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use GhaniniaIR\Shipping\Core\Enums\EnumShipping;
 
 class TariffDetail extends Model
 {
-    protected $fillable = [
-        "tariff_id" ,
-        "min_weight" ,
-        "max_weight" ,
-        "cost" ,
-        "type" , // in : EnumState
-        "is_provincial_capital"
-    ] ;
+    
+    protected $connection = EnumShipping::CONNECTION_NAME;
 
-    public $timestamps = false ;
+    protected $fillable = [
+        "tariff_id",
+        "min_weight",
+        "max_weight",
+        "cost",
+        "type", // in : EnumState
+        "is_provincial_capital"
+    ];
+
+    public $timestamps = false;
 
     public $casts = [
         "is_provincial_capital" => "boolean"
@@ -26,7 +30,6 @@ class TariffDetail extends Model
      */
     public function tariff()
     {
-        return $this->belongsTo(Tariff::class) ;
+        return $this->belongsTo(Tariff::class);
     }
-
 }

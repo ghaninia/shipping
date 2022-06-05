@@ -1,16 +1,6 @@
 <?php
 
 use GhaniniaIR\Shipping\Core\Classes\Config;
-use GhaniniaIR\Shipping\ShippingSystem;
-
-ShippingSystem::reconnection([
-    'driver' => 'sqlite',
-    'database' => __DIR__."/database/database.sqlite",
-    'foreign_key_constraints' => true,
-    'strict' => true,
-]);
-
-ShippingSystem::reconfig(__DIR__ . "/configs/shipping.php");
 
 if (function_exists("settings")) {
     /**

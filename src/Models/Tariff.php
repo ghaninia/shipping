@@ -2,10 +2,14 @@
 
 namespace GhaniniaIR\Shipping\Models;
 
+use GhaniniaIR\Shipping\Core\Enums\EnumShipping;
 use Illuminate\Database\Eloquent\Model;
 
 class Tariff extends Model
 {
+    
+    protected $connection = EnumShipping::CONNECTION_NAME ;
+    
     protected $fillable = [
         "driver_id" ,
         "cod" , ### On-site delivery cost
