@@ -93,7 +93,7 @@ $result = (new SefarshiDriver())
 <h5>Laravel:</h5>
 
 ```composer log
-php artisan vendor:publish --tag:shipping --force
+php artisan vendor:publish --tag=shipping --force
 ```
 
 It will then be published to you in the database and configuration file
