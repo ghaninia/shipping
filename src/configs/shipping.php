@@ -1,6 +1,7 @@
 <?php
 
 return [
+    "language" => "en",
     "connection" => [
         "default" => "postage",
         "drivers" => [

@@ -8,6 +8,6 @@ class NotMatchProvinceException extends Exception
 {
     public function message()
     {
-        return "The target province has not been found! Please enter the correct id .";
+        return trans("shipping.exception.not_match_province");
     }
 }

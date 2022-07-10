@@ -6,7 +6,7 @@ abstract class EnumAbstract
 {
 
     /*
-    ** تمام ثابت های داخل کلاس
+    ** get all constants of the class
     ** @return array
     */
     public static function all(): array
@@ -15,7 +15,7 @@ abstract class EnumAbstract
     }
 
     /*
-    ** تمام ثابت های کلاس فعلی را دریافت مینماییم
+    ** show all constants of the class
     ** @param string    $key
     ** @return array
     */

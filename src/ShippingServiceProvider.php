@@ -13,6 +13,7 @@ class ShippingServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/database' => database_path(),
             __DIR__ . '/configs' => config_path(),
+            __DIR__ . '/langs' => lang_path(),
         ], 'shipping');
 
         $this->app->instance(PostageInterface::class, new PostageCalculator());
