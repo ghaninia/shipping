@@ -25,5 +25,10 @@ class ShippingServiceProvider extends ServiceProvider
             __DIR__ . "/configs/shipping.php",
             "shipping",
         );
+
+        $this->loadTranslationsFrom(
+            __DIR__ . "/langs",
+            "shipping"
+        );
     }
 }

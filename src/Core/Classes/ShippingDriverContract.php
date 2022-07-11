@@ -2,12 +2,12 @@
 
 namespace GhaniniaIR\Shipping\Core\Classes;
 
-use GhaniniaIR\Shipping\Core\Exceptions\NotMatchProvinceException;
 use GhaniniaIR\Shipping\Models\Driver;
 use GhaniniaIR\Shipping\Models\TariffDetail;
 use GhaniniaIR\Shipping\Core\Services\DriverService;
 use GhaniniaIR\Shipping\Core\Services\TariffService;
 use GhaniniaIR\Shipping\Core\Services\LocationService;
+use GhaniniaIR\Shipping\Core\Exceptions\TariffNotSupportException;
 
 abstract class ShippingDriverContract extends LocationService
 {
@@ -122,10 +122,12 @@ abstract class ShippingDriverContract extends LocationService
             ))
             ->search();
 
-        if(is_null($result)){
-            throw new NotMatchProvinceException() ;
+        if (is_null($result)) {
+            throw new TariffNotSupportException(
+                trans("shipping.exception.tariff_not_found.support")
+            );
         }
 
-        return $result ;
+        return $result;
     }
 }
