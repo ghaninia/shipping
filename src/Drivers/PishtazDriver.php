@@ -11,6 +11,7 @@ class PishtazDriver extends ShippingDriverContract implements ShippingDriverInte
     final public function calculate(): int
     {
         $tariffDetail = $this->tariffDetail();
+
         $tariff = $tariffDetail->tariff;
 
         if (!is_null($tariff->max_weight) && !($tariff->max_weight >= $this->weight)) {

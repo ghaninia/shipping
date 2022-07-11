@@ -1,8 +1,7 @@
 <?php
 
-namespace Tests\Unit\Drivers;
+namespace Tests\units\Drivers;
 
-use Mockery;
 use PHPUnit\Framework\TestCase;
 use GhaniniaIR\Shipping\Models\State;
 use GhaniniaIR\Shipping\Models\Driver;
@@ -32,7 +31,7 @@ class PishtazDriverTest extends TestCase
     }
 
     /** @test */
-    public function calculatePishtazInSide()
+    public function RealCalculatePishtazInSide()
     {
         $state = State::query()->with("cities")->first();
         $city = $state->cities->first();
@@ -43,32 +42,5 @@ class PishtazDriverTest extends TestCase
             ->calculate();
 
         $this->assertEquals($pishtaz, 81009);
-    }
-
-    /** @test */
-    public function mockCalculatePishtazInSide()
-    {
-        // $mock = Mockery::mock(PishtazDriver::class)
-        //     ->shouldReceive('tariffDetail')
-        //     ->once()
-        //     ->andReturn(
-        //         (object) [
-        //             'tariff' => (object) [
-        //                 'code' => 81009,
-        //                 'vat' => 0,
-        //                 'tax' => 0,
-        //                 'registration_fee' => 0,
-        //                 'right_headquarters' => 0,
-        //                 'insurance' => 0,
-        //                 'max_weight' => null,
-        //                 'min_weight' => 0,
-        //             ],
-        //             'max_weight' => null,
-        //             'min_weight' => 0,
-        //             'base_price' => 81009,
-        //             'over_per_kg_price' => 0,
-        //         ]
-        //     );
-
     }
 }
