@@ -16,7 +16,7 @@ composer require ghaninia/shipping
 vendor\bin\phpunit 
 ```
 
-<p>✔If you use package on laravel you should add below command to app.php <p>
+<p>and If you want run package on laravel, you must add below command to app.php <p>
 
 ```php 
 ### config/app.php
@@ -28,6 +28,16 @@ vendor\bin\phpunit
     ],
 ```
 
+<hr />
+
+<h3>Publishing Core</h3>
+<p>You can edit the database to change the postal tariffs.</p>
+```composer log
+php artisan vendor:publish --tag=shipping --force
+```
+
+<hr />
+<h3>Geo basic information</h3>
 <p>Receive information of cities and provinces and their details</p>
 
 ```php
@@ -38,7 +48,7 @@ use GhaniniaIR\Shipping\Core\Services\LocationService ;
 ### Get information on cities and provinces
 (new LocationService())->list();
 
-### Are the provinces adjacent to each other?
+### Get the list of neighboring provinces
 (new LocationService())
     ->source(State $state , City $city)
     ->destination(State $state , ?City $city)
@@ -52,7 +62,9 @@ use GhaniniaIR\Shipping\Core\Services\LocationService ;
 
 ````
 
-<p>Calculate Post <b>Pishtaz</b> Tariff</p>
+<hr />
+
+<h3>Calculate Tariffs</h3>
 
 ```php
 <?php
@@ -69,8 +81,6 @@ $result = (new PishtazDriver())
     ->calculate();
 ```
 
-<p>Calculate Post <b>Sefareshi</b> Tariff</p>
-
 ```php
 <?php
 
@@ -85,15 +95,3 @@ $result = (new SefarshiDriver())
     ->destination(State $sourceState , ?City $sourceCity)
     ->calculate();
 ```
-
-<hr />
-
-<h3>Reconnection</h3>
-<p>If you want to change the type of connection to the database, follow the code below</p>
-<h5>Laravel:</h5>
-
-```composer log
-php artisan vendor:publish --tag=shipping --force
-```
-
-It will then be published to you in the database and configuration file
