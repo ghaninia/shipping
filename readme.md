@@ -32,6 +32,7 @@ vendor\bin\phpunit
 
 <h3>Publishing Core</h3>
 <p>You can edit the database to change the postal tariffs.</p>
+
 ```composer log
 php artisan vendor:publish --tag=shipping --force
 ```
