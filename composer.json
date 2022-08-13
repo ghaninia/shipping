@@ -16,16 +16,11 @@
     },
     "autoload": {
         "psr-4": {
-            "GhaniniaIR\\Shipping\\" : "src/"
-        }
-    },
-    "autoload-dev": {
+            "GhaniniaIR\\Shipping\\" : "src/" 
+        } ,
         "files": [
-            "src/bootstrap.php"
-        ],
-        "psr-4": {
-            "Tests\\": "tests/"
-        }
+            "src/autoload.php"
+        ]
     },
     "extra": {
         "laravel": {

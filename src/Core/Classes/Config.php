@@ -2,11 +2,11 @@
 
 namespace GhaniniaIR\Shipping\Core\Classes;
 
-use GhaniniaIR\Shipping\PostageCalculator;
-
 class Config
 {
     private static $configs;
+
+    private static $location;
 
     private function __construct()
     {
@@ -18,7 +18,7 @@ class Config
      */
     public static function getInstance()
     {
-        $key = PostageCalculator::$config;
+        $key = self::$location;
 
         isset(self::$configs[$key]) ?: static::$configs[$key] = require($key);
 
@@ -39,11 +39,23 @@ class Config
 
         $result = array_reduce($keys, function ($prev, $next) {
 
-            $prev = is_null($prev) ? static::$configs[PostageCalculator::$config] : $prev;
+            $prev = is_null($prev) ? static::$configs[self::$location] : $prev;
 
             return $prev[$next] ?? null;
         });
 
         return $result ?? $default;
+    }
+
+    /**
+     * set config in file
+     *
+     * @param string $key
+     *
+     * @return void
+     */
+    public static function setLocation(string $location)
+    {
+        static::$location = $location;
     }
 }

@@ -2,40 +2,38 @@
 
 namespace GhaniniaIR\Shipping;
 
-use GhaniniaIR\Shipping\Core\Enums\EnumShipping;
-use Illuminate\Database\Capsule\Manager as Capsule;
-use GhaniniaIR\Shipping\Core\Interfaces\PostageInterface;
+use Closure;
+use GhaniniaIR\Shipping\Core\Classes\Config;
 
-class PostageCalculator implements PostageInterface
+class PostageCalculator
 {
-    public static string $config;
 
     /**
-     * @param array $connection
+     * re connection to database
+     *
+     * @param string $method
+     * @param Closure|null $alternative
      * @return void
      */
-    public function __construct()
+    public static function reConnection(string $method, Closure $aftter = null)
     {
 
-        $method = function_exists("config") && function_exists("app") ? "config" : "settings";
-
         $defaultConnectionName = ($method)("shipping.connection.default");
+
         $defaultConnectionDriver = ($method)(
             sprintf("shipping.connection.drivers.%s", $defaultConnectionName)
         ) ?? [];
 
-        $capsule = new Capsule;
-        $capsule->addConnection($defaultConnectionDriver, EnumShipping::CONNECTION_NAME);
-        $capsule->setAsGlobal();
-        $capsule->bootEloquent();
+        !is_null($aftter) ? $aftter($defaultConnectionDriver) : null;
     }
 
     /**
-     * @param string $config
+     * set config file location 
+     * @param string $location
      * @return void
      */
-    public static function reconfig(string $config)
+    public static function setConfigLocation(string $location)
     {
-        self::$config = $config;
+        Config::setLocation($location);
     }
 }
