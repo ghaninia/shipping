@@ -34,9 +34,5 @@ class ShippingServiceProvider extends ServiceProvider
             __DIR__ . '/configs' => config_path(),
             __DIR__ . '/langs' => lang_path(),
         ], 'shipping');
-
-        $this->publishes([
-            __DIR__ . '/config/shipping.php' => config_path('shipping.php')
-        ], 'config');
     }
 }
